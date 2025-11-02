@@ -13,9 +13,6 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
 </head>
 <body>
-    <!-- Keep ALL your existing login page HTML content -->
-    <!-- But remove any <style> tags inside the HTML -->
-    
     <div class="container">
         <div class="welcome-section">
             <h1>Child Adoption & Growth Tracking System</h1>
@@ -58,8 +55,9 @@
             <div id="login-form" class="form active">
                 <div class="demo-credentials">
                     <h3>Demo Login Credentials:</h3>
-                    <p><strong>Parent:</strong> parent@example.com / password123</p>
-                    <p><strong>Staff:</strong> staff@example.com / password123</p>
+                    <p><strong>Parent:</strong> parent@adoptlink.com / password123</p>
+                    <p><strong>Staff:</strong> staff@adoptlink.com / password123</p>
+                    <p><strong>Admin:</strong> admin@adoptlink.com / password123</p>
                 </div>
                 
                 <div class="form-group">
@@ -77,6 +75,7 @@
                 <div class="user-type">
                     <label><input type="radio" name="user-type" value="parent" checked> Parent</label>
                     <label><input type="radio" name="user-type" value="staff"> Staff</label>
+                    <label><input type="radio" name="user-type" value="admin"> Admin</label>
                 </div>
                 
                 <button class="btn btn-primary" onclick="handleLogin()">Login</button>
@@ -136,5 +135,12 @@
     <script src="js/common.js"></script>
     <script src="js/auth.js"></script>
     <script src="js/login.js"></script>
+    <!-- Temporary debug button - remove after testing -->
+<div style="position: fixed; bottom: 10px; right: 10px; z-index: 10000;">
+    <button onclick="localStorage.clear(); location.reload();" 
+            style="background: red; color: white; padding: 5px; border: none; border-radius: 3px;">
+        Clear Storage & Reload
+    </button>
+</div>
 </body>
 </html>

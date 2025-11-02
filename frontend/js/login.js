@@ -94,16 +94,39 @@ document.addEventListener('DOMContentLoaded', function() {
         }
     });
 
-    // Check if user is already logged in
+    // Check if user is already logged in (at the bottom of login.js)
+document.addEventListener('DOMContentLoaded', function() {
+    // Login form enter key
+    document.getElementById('login-password').addEventListener('keypress', function(e) {
+        if (e.key === 'Enter') {
+            handleLogin();
+        }
+    });
+
+    // Signup form enter key
+    document.getElementById('signup-confirm').addEventListener('keypress', function(e) {
+        if (e.key === 'Enter') {
+            handleSignup();
+        }
+    });
+
+    // Check if user is already logged in - BUT don't redirect from login page
     const token = localStorage.getItem('token');
     const user = JSON.parse(localStorage.getItem('user') || 'null');
     
-    if (token && user) {
-        // Redirect to appropriate dashboard
-        if (user.user_type === 'staff' || user.user_type === 'admin') {
-            window.location.href = 'staff.html';
-        } else if (user.user_type === 'parent') {
-            window.location.href = 'parent.html';
-        }
+    console.log('Login page loaded - Current user:', user);
+    
+    // Only redirect if we have valid auth data AND we're on login page
+    if (token && user && window.location.pathname.includes('login.html')) {
+        console.log('Already logged in, redirecting to dashboard...');
+        // Small delay to let page load completely
+        setTimeout(() => {
+            if (user.user_type === 'staff' || user.user_type === 'admin') {
+                window.location.href = 'staff.html';
+            } else if (user.user_type === 'parent') {
+                window.location.href = 'parent.html';
+            }
+        }, 1000);
     }
+});
 });

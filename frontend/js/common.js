@@ -162,15 +162,47 @@ function isValidPhone(phone) {
 }
 
 // Check if user is logged in
+// Check if user is logged in
 function checkAuth() {
     const token = localStorage.getItem('token');
     const user = JSON.parse(localStorage.getItem('user') || 'null');
     
+    console.log('Auth Check - Token:', !!token, 'User:', user);
+    
     if (!token || !user) {
-        window.location.href = 'login.html';
+        console.log('No auth data, redirecting to login');
+        // Only redirect if we're not already on login page
+        if (!window.location.href.includes('login.html')) {
+            window.location.href = 'login.html';
+        }
         return null;
     }
     
+    // Verify token is not expired (basic check)
+    try {
+        const payload = JSON.parse(atob(token.split('.')[1]));
+        const isExpired = payload.exp * 1000 < Date.now();
+        
+        if (isExpired) {
+            console.log('Token expired');
+            localStorage.removeItem('token');
+            localStorage.removeItem('user');
+            if (!window.location.href.includes('login.html')) {
+                window.location.href = 'login.html';
+            }
+            return null;
+        }
+    } catch (error) {
+        console.log('Token invalid');
+        localStorage.removeItem('token');
+        localStorage.removeItem('user');
+        if (!window.location.href.includes('login.html')) {
+            window.location.href = 'login.html';
+        }
+        return null;
+    }
+    
+    console.log('User authenticated:', user);
     return user;
 }
 

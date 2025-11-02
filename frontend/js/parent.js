@@ -9,17 +9,41 @@ let parentData = {
 
 document.addEventListener('DOMContentLoaded', async () => {
     const user = checkAuth();
-    if (!user || user.user_type !== 'parent') {
-        window.location.href = 'login.html';
+    console.log('Dashboard loaded - User:', user);
+    
+    if (!user) {
+        console.log('No user found, stopping dashboard load');
+        return; // checkAuth() already redirects to login
+    }
+    
+    // Check user type matches the dashboard
+    if (window.location.pathname.includes('parent.html') && user.user_type !== 'parent') {
+        console.log('Wrong dashboard for user type, redirecting...');
+        if (user.user_type === 'staff' || user.user_type === 'admin') {
+            window.location.href = 'staff.html';
+        } else {
+            window.location.href = 'login.html';
+        }
+        return;
+    }
+    
+    if (window.location.pathname.includes('staff.html') && !['staff', 'admin'].includes(user.user_type)) {
+        console.log('Wrong dashboard for user type, redirecting...');
+        if (user.user_type === 'parent') {
+            window.location.href = 'parent.html';
+        } else {
+            window.location.href = 'login.html';
+        }
         return;
     }
 
+    // Continue loading dashboard...
     // Update user info in header
     document.getElementById('userName').textContent = user.name;
     document.getElementById('userAvatar').textContent = 
         user.name.split(' ').map(n => n[0]).join('').toUpperCase();
 
-    await loadParentDashboard();
+    await loadParentDashboard(); // or loadStaffDashboard() etc.
     setupEventListeners();
 });
 
