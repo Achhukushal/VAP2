@@ -1,0 +1,155 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Parent Dashboard - AdoptLink</title>
+    
+    <!-- External CSS -->
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/parent.css">
+    
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body>
+    <!-- Sidebar -->
+    <div class="sidebar">
+        <div class="logo">
+            <i class="fas fa-hands-helping"></i>
+            <h1>AdoptLink</h1>
+        </div>
+        <ul class="sidebar-menu">
+            <li class="menu-item active" data-target="dashboard">
+                <i class="fas fa-tachometer-alt"></i>
+                <span>Dashboard</span>
+            </li>
+            <li class="menu-item" data-target="profile">
+                <i class="fas fa-user"></i>
+                <span>Parent Profile</span>
+            </li>
+            <li class="menu-item" data-target="documents">
+                <i class="fas fa-file-alt"></i>
+                <span>Documents</span>
+            </li>
+            <li class="menu-item" data-target="child">
+                <i class="fas fa-child"></i>
+                <span>Adopted Child</span>
+            </li>
+            <li class="menu-item" data-target="visits">
+                <i class="fas fa-calendar-alt"></i>
+                <span>Scheduled Visits</span>
+            </li>
+            <li class="menu-item" data-target="health">
+                <i class="fas fa-heartbeat"></i>
+                <span>Health Records</span>
+            </li>
+            <li class="menu-item" data-target="education">
+                <i class="fas fa-graduation-cap"></i>
+                <span>Education</span>
+            </li>
+            <li class="menu-item" id="logoutBtn">
+                <i class="fas fa-sign-out-alt"></i>
+                <span>Logout</span>
+            </li>
+        </ul>
+    </div>
+
+    <!-- Main Content -->
+    <div class="main-content">
+        <div class="header">
+            <h2 id="pageTitle">Parent Dashboard</h2>
+            <div class="user-info">
+                <div class="user-avatar" id="userAvatar">JD</div>
+                <div>
+                    <div id="userName">John Doe</div>
+                    <div class="status-badge status-pending" id="statusBadge">Pending Verification</div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Dashboard Content -->
+        <div class="dashboard-content active" id="dashboard">
+            <div class="stats-cards">
+                <div class="stat-card">
+                    <div class="stat-icon" style="background-color: #e8f4fc; color: var(--primary);">
+                        <i class="fas fa-user-check"></i>
+                    </div>
+                    <div class="stat-info">
+                        <h3 id="verifiedStatus">Pending</h3>
+                        <p>Verification Status</p>
+                    </div>
+                </div>
+                <div class="stat-card">
+                    <div class="stat-icon" style="background-color: #e8f6f3; color: var(--success);">
+                        <i class="fas fa-file-medical"></i>
+                    </div>
+                    <div class="stat-info">
+                        <h3 id="healthRecordsCount">0</h3>
+                        <p>Health Records</p>
+                    </div>
+                </div>
+                <div class="stat-card">
+                    <div class="stat-icon" style="background-color: #fef9e7; color: var(--warning);">
+                        <i class="fas fa-graduation-cap"></i>
+                    </div>
+                    <div class="stat-info">
+                        <h3 id="educationRecordsCount">0</h3>
+                        <p>Education Records</p>
+                    </div>
+                </div>
+                <div class="stat-card">
+                    <div class="stat-icon" style="background-color: #e2e3f3; color: #383d8c;">
+                        <i class="fas fa-calendar-check"></i>
+                    </div>
+                    <div class="stat-info">
+                        <h3 id="scheduledVisitsCount">0</h3>
+                        <p>Scheduled Visits</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="card">
+                <div class="card-header">
+                    <h3 class="card-title">Recent Activity</h3>
+                </div>
+                <div class="activity-list" id="activityList">
+                    <!-- Activities will be loaded by JavaScript -->
+                </div>
+            </div>
+
+            <div class="card">
+                <div class="card-header">
+                    <h3 class="card-title">My Applications</h3>
+                </div>
+                <div class="table-container">
+                    <table class="data-table">
+                        <thead>
+                            <tr>
+                                <th>Child Name</th>
+                                <th>Application Date</th>
+                                <th>Status</th>
+                                <th>Assigned Staff</th>
+                                <th>Actions</th>
+                            </tr>
+                        </thead>
+                        <tbody id="applicationsTable">
+                            <!-- Applications will be loaded by JavaScript -->
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+
+        <!-- Other dashboard content sections (profile, documents, child, visits, health, education) -->
+        <!-- Keep all your existing HTML content for these sections -->
+        <!-- But remove any <style> tags and inline JavaScript -->
+
+    </div>
+
+    <!-- External JavaScript -->
+    <script src="js/common.js"></script>
+    <script src="js/auth.js"></script>
+    <script src="js/parent.js"></script>
+</body>
+</html>

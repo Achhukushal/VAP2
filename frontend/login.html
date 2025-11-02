@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AdoptLink - Login</title>
+    
+    <!-- External CSS -->
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/login.css">
+    
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body>
+    <!-- Keep ALL your existing login page HTML content -->
+    <!-- But remove any <style> tags inside the HTML -->
+    
+    <div class="container">
+        <div class="welcome-section">
+            <h1>Child Adoption & Growth Tracking System</h1>
+            <p>A secure platform connecting prospective parents with orphanages and simplifying the legal adoption process.</p>
+            <p>Track your child's growth, health, and education milestones in one place.</p>
+            
+            <div class="features">
+                <div class="feature">
+                    <i class="fas fa-heart"></i>
+                    <span>Ensuring transparency and child welfare</span>
+                </div>
+                <div class="feature">
+                    <i class="fas fa-shield-alt"></i>
+                    <span>Secure and verified adoption process</span>
+                </div>
+                <div class="feature">
+                    <i class="fas fa-chart-line"></i>
+                    <span>Comprehensive growth tracking</span>
+                </div>
+                <div class="feature">
+                    <i class="fas fa-hand-holding-heart"></i>
+                    <span>Support throughout the adoption journey</span>
+                </div>
+            </div>
+        </div>
+        
+        <div class="form-section">
+            <div class="logo">
+                <div class="logo-icon">
+                    <i class="fas fa-hands-helping"></i>
+                </div>
+                <h2>Welcome to AdoptLink</h2>
+            </div>
+            
+            <div class="tabs">
+                <div class="tab active" onclick="showForm('login')">Login</div>
+                <div class="tab" onclick="showForm('signup')">Sign Up</div>
+            </div>
+            
+            <div id="login-form" class="form active">
+                <div class="demo-credentials">
+                    <h3>Demo Login Credentials:</h3>
+                    <p><strong>Parent:</strong> parent@example.com / password123</p>
+                    <p><strong>Staff:</strong> staff@example.com / password123</p>
+                </div>
+                
+                <div class="form-group">
+                    <label for="login-email">Email Address</label>
+                    <input type="email" id="login-email" placeholder="Enter your email">
+                    <i class="fas fa-envelope"></i>
+                </div>
+                
+                <div class="form-group">
+                    <label for="login-password">Password</label>
+                    <input type="password" id="login-password" placeholder="Enter your password">
+                    <i class="fas fa-lock"></i>
+                </div>
+                
+                <div class="user-type">
+                    <label><input type="radio" name="user-type" value="parent" checked> Parent</label>
+                    <label><input type="radio" name="user-type" value="staff"> Staff</label>
+                </div>
+                
+                <button class="btn btn-primary" onclick="handleLogin()">Login</button>
+                
+                <div class="forgot-password">
+                    <a href="#">Forgot Password?</a>
+                </div>
+            </div>
+            
+            <div id="signup-form" class="form">
+                <div class="demo-credentials">
+                    <h3>Create a New Account</h3>
+                    <p>Fill in the details below to create your account</p>
+                </div>
+                
+                <div class="form-group">
+                    <label for="signup-name">Full Name</label>
+                    <input type="text" id="signup-name" placeholder="Enter your full name">
+                    <i class="fas fa-user"></i>
+                </div>
+                
+                <div class="form-group">
+                    <label for="signup-email">Email Address</label>
+                    <input type="email" id="signup-email" placeholder="Enter your email">
+                    <i class="fas fa-envelope"></i>
+                </div>
+                
+                <div class="form-group">
+                    <label for="signup-password">Password</label>
+                    <input type="password" id="signup-password" placeholder="Create a password">
+                    <i class="fas fa-lock"></i>
+                </div>
+                
+                <div class="form-group">
+                    <label for="signup-confirm">Confirm Password</label>
+                    <input type="password" id="signup-confirm" placeholder="Confirm your password">
+                    <i class="fas fa-lock"></i>
+                </div>
+                
+                <div class="form-group">
+                    <label for="signup-phone">Phone Number</label>
+                    <input type="tel" id="signup-phone" placeholder="Enter your phone number">
+                    <i class="fas fa-phone"></i>
+                </div>
+                
+                <div class="user-type">
+                    <label><input type="radio" name="signup-user-type" value="parent" checked> Parent</label>
+                    <label><input type="radio" name="signup-user-type" value="staff"> Staff</label>
+                </div>
+                
+                <button class="btn btn-primary" onclick="handleSignup()">Create Account</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- External JavaScript -->
+    <script src="js/common.js"></script>
+    <script src="js/auth.js"></script>
+    <script src="js/login.js"></script>
+</body>
+</html>
